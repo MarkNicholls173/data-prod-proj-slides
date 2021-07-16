@@ -17,9 +17,9 @@ theme_set(theme_light())
 
 This is a presentation about my app submission for the Data Products Course project.  
 
-I have made an app that will predict the standard quarter mile of a car, the model is trained on the MTcars data set.
+I have made an app that will predict the standing quarter mile time of a car, the model is trained on the MTcars data set.
 
-The model is build from the following 3 features
+The model is built from the following 3 features
 
 - Weight (wt)
 - Horsepower (hp)
