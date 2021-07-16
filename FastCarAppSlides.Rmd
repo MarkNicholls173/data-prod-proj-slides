@@ -1,0 +1,72 @@
+---
+title: "Fast Car App"
+author: "Mark Nicholls"
+date: "16/07/2021"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(GGally)
+data("mtcars")
+theme_set(theme_light())
+```
+
+## Fast Car App
+
+This is a presentation about my app submission for the Data Products Course project.  
+
+I have made an app that will predict the standard quarter mile of a car, the model is trained on the MTcars data set.
+
+The model is build from the following 3 features
+
+- Weight (wt)
+- Horsepower (hp)
+- Number of Cylinders (cyl)
+
+## Weight Relationship
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+mtcars %>% 
+  ggplot(aes(qsec, wt)) + 
+  geom_line() + 
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Relationship Weight to Quarter Mile time",
+    y = "Weight (1000s lb)",
+    x = "Quarter Mile Time (seconds)"
+  )
+
+```
+
+## Horsepower Relationship
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+mtcars %>% 
+  ggplot(aes(qsec, hp)) + 
+  geom_line() + 
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Relationship Horsepower to Quarter Mile time",
+    y = "Horsepower",
+    x = "Quarter Mile Time (seconds)"
+  )
+
+```
+
+## Cylinder Relationship
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+mtcars %>% 
+  ggplot(aes(qsec, factor(cyl), group = cyl)) + 
+  geom_boxplot() + 
+  coord_flip() +
+  labs(
+    title = "Relationship Cylinder to Quarter Mile time",
+    y = "Cylinders",
+    x = "Quarter Mile Time (seconds)"
+  )
+
+```
+
